@@ -5,18 +5,7 @@
   box-shadow: $shadow;
   border-radius: 8px;
   padding: 24px 48px;
-  background-color: $secondary;
-  // h1 {
-  //   text-shadow: 
-  //     -0.03em 0.04em 0 mix($tertiary, $primary, 94%),
-  //     0.005em 0.005em 0 mix($tertiary, $primary, 60%),
-  //     0.01em 0.01em 0 mix($tertiary, $primary, 62%), 
-  //     0.015em 0.015em mix($tertiary, $primary, 64%), 
-  //     0.02em 0.02em 0 mix($tertiary, $primary, 66%), 
-  //     0.025em 0.025em 0 mix($tertiary, $primary, 68%),
-  //     0.03em 0.03em 0 mix($tertiary, $primary, 70%),
-  //     0.05em 0.05em 0 mix($tertiary, $primary, 72%);
-  // }
+  background-color: $shade2;
 }
 
 .main {
@@ -25,9 +14,16 @@
   justify-content: flex-start;
   flex-direction: column;
   padding: 48px 0px;
+  transition: height, top;
 }
 
 .descr {
   font-size: 1.5rem;
   padding: 24px 0px;
+}
+
+.connect {
+  width: 250px;
+  text-align: center;
+  margin-top: 32px;
 }

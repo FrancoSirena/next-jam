@@ -1,0 +1,42 @@
+@import 'colors';
+
+.button {
+  padding: 16px 32px;
+  min-height: 32px;
+  background-color: $tertiary;
+  color: $primary;
+  box-shadow: $shadow1;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  &:hover {
+    background-color: rgba($tertiary, 0.8);
+    box-shadow: none;
+  }
+  &--primary {
+    background-color: $buttonPrimary;
+  }
+}
+
+a.button {
+  &, &:visited, &:hover {
+    text-decoration: none;
+  }
+}
+
+.pill {
+  border-radius: 10px;
+  padding: 4px 8px;
+  font-size: 1rem;
+  background-color: $pill;
+  color: $text2;
+  white-space: nowrap;
+  word-break: keep-all;
+  &.selected {
+    background-color: $tertiary;
+    color: $primary;
+  }
+}
+
+button.pill {
+  cursor: pointer;
+}

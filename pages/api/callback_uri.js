@@ -1,5 +1,4 @@
 import Axios from "axios";
-import { query } from "express";
 import {
   CLIENT_SECRET,
   CLIENT_ID,
@@ -13,9 +12,7 @@ export default (req, res) => {
   var state = req.query.state || null;
   var storedState = req.cookies ? req.cookies[STATE_KEY] : null;
   if (state !== storedState) {
-    res.sendStatus(500)
-    res.sendMessage('Unable to get token')
-    return res;
+    return res.redirect(`/?${querystring.stringify({ error: 'Unable to get token' })}`);
   }
   return Axios.post(
     "https://accounts.spotify.com/api/token",

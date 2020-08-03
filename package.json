@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev:custom": "nodemon server.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },

@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import LogIn from "../components/login";
 import Top from "../components/top";
 import UserProvider from "../components/usercontext";
@@ -22,11 +20,11 @@ export default function Home(props) {
           <header className={styles.title}>
             <h1>Your Spotify Jam</h1>
           </header>
+          {!props.access_token && <LogIn />}
           <p className={styles.descr}>
-            Check out your most listened songs and your preferred gender. Just
-            sign with your Spotify account and check out your cool stuff.
+            Check out your most listened artists and which music genres you prefer.
+            {!props.access_token && <>Just hit login and connect with your Spotify account.</>}
           </p>
-          <LogIn />
           {props.access_token && <Top />}
         </main>
 
