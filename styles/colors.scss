@@ -1,10 +1,17 @@
-// $primary: #F3F9D2;
-$primary: #E5F9E0;
-$secondary: #664147;
-$tertiary: #93827F;
+$primary: #3066BE;
+$secondary: #119da4;
+$tertiary: #6D9DC5;
+$shade1: #AEECEF;
+$shade2: #80DED9;
+
+$background: $shade1;
+
+$text: $primary;
+$text2: $shade2;
+
+$buttonPrimary: $tertiary;
+$pill: $primary;
+
 
 $shadow: 6px 5px 10px 4px $secondary;
-$shadow1: #000;
-
-$text: #2F9C95;
-$text2: #6C698D;
+$shadow1: 4px 2px 6px 1px $secondary;

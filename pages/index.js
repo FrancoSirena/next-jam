@@ -1,9 +1,10 @@
+import Axios from "axios";
 import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import CurrentPlaying from "../components/currentplaying";
 import LogIn from "../components/login";
 import Top from "../components/top";
 import UserProvider from "../components/usercontext";
+import UserProfile from "../components/userprofile";
 import styles from "../styles/index.module.scss";
 
 export default function Home(props) {
@@ -20,13 +21,23 @@ export default function Home(props) {
 
         <main className={styles.main}>
           <header className={styles.title}>
-            <h1>Your Spotify Jam</h1>
+            {props.user ? (
+              <>
+                <UserProfile user={props.user} />
+                <CurrentPlaying />
+              </>
+            ) : (
+              <h1>Your Spotify Jam</h1>
+            )}
           </header>
+          {!props.access_token && <LogIn />}
           <p className={styles.descr}>
-            Check out your most listened songs and your preferred gender. Just
-            sign with your Spotify account and check out your cool stuff.
+            Check out your most listened artists and which music genres you
+            prefer.
+            {!props.access_token && (
+              <>Just hit login and connect with your Spotify account.</>
+            )}
           </p>
-          <LogIn />
           {props.access_token && <Top />}
         </main>
 
@@ -36,9 +47,20 @@ export default function Home(props) {
   );
 }
 
-Home.getInitialProps = (ctx) => {
+export async function getServerSideProps(ctx) {
+  let user = null;
+  if (ctx.query.access_token) {
+    ({ data: user } = await Axios.get("https://api.spotify.com/v1/me/", {
+      headers: {
+        Authorization: `Bearer ${ctx.query.access_token}`,
+      },
+    }));
+  }
   return {
-    access_token: ctx.query.access_token,
-    refresh_token: ctx.query.refresh_token,
+    props: {
+      access_token: ctx.query.access_token ?? null,
+      refresh_token: ctx.query.refresh_token ?? null,
+      user,
+    },
   };
-};
+}

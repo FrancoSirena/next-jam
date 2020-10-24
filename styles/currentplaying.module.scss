@@ -1,0 +1,26 @@
+.title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  h1 {
+    font-size: 14px;
+    margin: 0;
+    margin-right: 4px;
+  }
+}
+
+.track {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  h2 {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.refresh {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}

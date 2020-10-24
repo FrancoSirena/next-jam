@@ -3,30 +3,76 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   column-gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   row-gap: 24px;
+  width: 100%;
   &.loading {
-    animation: load 400ms infinite;
+    animation: load 1000ms infinite;
   }
 }
 
 .wrapper {
   box-shadow: $shadow;
-  min-height: 500px;
-  min-width: 400px;
+  min-height: 400px;
+  min-width: 350px;
   border-radius: 10px;
   padding: 20px;
   word-wrap: break-word;
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.artistInfo {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 @keyframes load {
   from {
     opacity: 0.5;
-    transform: perspective(0.8);
   }
   to {
     opacity: 1;
-    transform: perspective(1);
   }
+}
+
+.pills {
+  padding: 32px 0px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.genres {
+  padding: 32px 0px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.genre {
+  padding: 0px 8px;
+}
+
+.extraInfo {
+  font-size: 0.9rem;
+  .title {
+    text-decoration: underline;
+  }
+  .info {
+    font-weight: 600;
+  }
+}
+
+.image {
+  border-radius: 5%;
+  box-shadow: $shadow1;
+  height: 120px;
+  width: 120px;
 }

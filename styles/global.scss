@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'basic-components';
 
 @font-face {
   font-family: 'Rubik Regular';
@@ -10,7 +11,7 @@ body {
   color: $text;
   margin: 0;
   padding: 10px;
-  background-color: $primary;
+  background-color: $background;
   a {
     color: $text;
   }
@@ -33,5 +34,12 @@ body {
     width: 100%;
     text-align: right;
     opacity: 0.8;
+  }
+
+  button {
+    border: 0;
+    @media screen {
+      outline: none;
+    }
   }
 }

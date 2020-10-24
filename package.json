@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev:custom": "nodemon server.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -12,6 +13,7 @@
     "cookie": "^0.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "lodash": "^4.17.19",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
