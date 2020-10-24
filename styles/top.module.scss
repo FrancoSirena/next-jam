@@ -7,7 +7,6 @@
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   row-gap: 24px;
   width: 100%;
-  padding: 0px 48px;
   &.loading {
     animation: load 1000ms infinite;
   }
@@ -55,7 +54,6 @@
   gap: 16px;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 60%;
 }
 
 .genre {

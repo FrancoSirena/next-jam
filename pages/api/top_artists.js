@@ -1,5 +1,4 @@
 import Axios from "axios";
-import querystring from "querystring";
 import { capitalize } from "../../utils/utils";
 
 function mapData(data) {
@@ -41,19 +40,3 @@ export default (req, res) => {
       res.send({ error: 'Unauthorized' })
     });
 };
-
-// Axios({
-//   url: ",
-//   headers: {
-//     Authorization: `Bearer ${accessToken}`,
-//   },
-// })
-//   .then(({ data }) => {
-//     dispatch({ type: "success", payload: data.items });
-//   })
-//   .catch(err => {
-//     if (err.response.status === 401) {
-//       renewAccessToken();
-//     }
-//     dispatch({ type: "error", payload: err.response.status })
-//   });

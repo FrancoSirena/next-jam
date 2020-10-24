@@ -1,100 +1,64 @@
-import React, { useContext, useReducer } from "react";
-import { UserContext } from "./usercontext";
-
-import Axios from "axios";
+import React, {  useReducer } from "react";
 
 import Artists from "./artists";
 import Genres from "./genres";
+import useRequest from "./hooks/useRequest";
 
 function reducer(state, action) {
   switch (action.type) {
-    case "loading": {
-      return {
-        ...state,
-        loading: true,
-      };
-    }
-    case "success": {
-      return {
-        ...state,
-        loading: false,
-        data: action.payload.data,
-        full: action.payload.full,
-        genres: action.payload.genres,
-      };
-    }
     case "filter": {
       const filter = new Set(state.filter);
       if (!filter.delete(action.payload.filter)) {
         filter.add(action.payload.filter);
       }
-      const data =
+      const current =
         filter.keys === 0
-          ? state.full
-          : state.full.filter(({ genresSet }) =>
+          ? action.payload.full
+          : action.payload.full.filter(({ genresSet }) =>
               [...filter].every((gen) => genresSet.has(gen))
             );
       return {
         ...state,
-        loading: false,
         filter,
-        data,
-      };
-    }
-    case "error": {
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
+        current,
       };
     }
   }
 }
 
 export default function Top() {
-  const { accessToken, refreshToken } = useContext(UserContext);
+  const {
+    loading,
+    data = {},
+  } = useRequest({
+    method: 'GET',
+    url: "api/top_artists",
+    transformResponse: data => {
+      const artists = data.artists.map((item) => ({
+        ...item,
+        genresSet: new Set(item.genres),
+      }));
+      return {full: artists, genres: data.genres}
+    }
+  })
   const [state, dispatch] = useReducer(reducer, {
-    loading: true,
-    data: undefined,
+    filter: undefined,
+    current: undefined,
   });
-  React.useEffect(() => {
-    dispatch({ type: "loading" });
-    accessToken &&
-      Axios({
-        url: "api/top_artists",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "X-Refresh-token": refreshToken,
-        },
-      })
-        .then(({ data }) => {
-          const artists = data.artists.map((item) => ({
-            ...item,
-            genresSet: new Set(item.genres),
-          }));
-          dispatch({
-            type: "success",
-            payload: { data: artists, full: artists, genres: data.genres },
-          });
-        })
-        .catch(() => {
-          window.location.replace("/api/login");
-        });
-  }, [accessToken]);
 
   function filterByGenre(genre) {
-    dispatch({ type: "filter", payload: { filter: genre } });
+    dispatch({ type: "filter", payload: { filter: genre, full: data.full } });
   }
 
   return (
     <>
       <Genres
-        loading={state.loading}
+        loading={loading}
         filter={state.filter}
         applyFilter={filterByGenre}
-        data={state.genres}
+        data={data.genres}
       />
-      <Artists loading={state.loading} applyFilter={filterByGenre} data={state.data} />
+      <Artists loading={loading} applyFilter={filterByGenre} data={state.current || data.full} />
     </>
   );
 }
