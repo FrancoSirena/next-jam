@@ -1,30 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Goal
+This is a try out on nextjs and the Spotify web-api just for fun.
+To make that happen I created a custom server with nextjs and instead of hitting the Spotify API directly from the client I encapsulated it all on server endpoints, which I have control over.
 
-## Getting Started
+Just a fun project to play with `nextjs`
 
-First, run the development server:
+## Running locally
+
+Run the development server:
 
 ```bash
-npm run dev
+npm run dev:custom
 # or
-yarn dev
+yarn dev:custom
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to http://localhost:3000 and check it out
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Structure
 
-## Learn More
+[api]: Folder with all the custom endpoints of this server. They are all using the Spofity API documentation that you check on https://developer.spotify.com/documentation/web-api/
 
-To learn more about Next.js, take a look at the following resources:
+[pages]: User accessible pages, most of them are using server based data, but some, like the current playing, are actually client based data which is controlled by a hook called `useRequest`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[styles]: All css related to the pages, we are using scss modules here to avoid css conflicts.
