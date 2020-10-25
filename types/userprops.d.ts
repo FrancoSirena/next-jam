@@ -1,0 +1,3 @@
+type UserProps = {
+  user: User;
+};

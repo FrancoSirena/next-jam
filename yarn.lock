@@ -1029,10 +1029,28 @@
   resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha1-3M5EMOZLRDuolF8CkPtWStW6xt0=
 
+"@types/node@^14.14.2":
+  version "14.14.2"
+  resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/@types/node/-/node-14.14.2.tgz#d25295f9e4ca5989a2c610754dc02a9721235eeb"
+  integrity sha1-0lKV+eTKWYmixhB1TcAqlyEjXus=
+
+"@types/prop-types@*":
+  version "15.7.3"
+  resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+  integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
+
 "@types/q@^1.5.1":
   version "1.5.4"
   resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha1-FZJUFOCtLNdlv+9YhC9+JqesyyQ=
+
+"@types/react@^16.9.53":
+  version "16.9.53"
+  resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/@types/react/-/react-16.9.53.tgz#40cd4f8b8d6b9528aedd1fff8fcffe7a112a3d23"
+  integrity sha1-QM1Pi41rlSiu3R//j8/+ehEqPSM=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -2277,6 +2295,11 @@ csso@^4.0.2:
   integrity sha1-DZmF3IUsfMKyys+74QeQFNGo6QM=
   dependencies:
     css-tree "1.0.0-alpha.39"
+
+csstype@^3.0.2:
+  version "3.0.4"
+  resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/csstype/-/csstype-3.0.4.tgz#b156d7be03b84ff425c9a0a4b1e5f4da9c5ca888"
+  integrity sha1-sVbXvgO4T/QlyaCkseX02pxcqIg=
 
 cyclist@^1.0.1:
   version "1.0.1"
@@ -5690,6 +5713,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^4.0.3:
+  version "4.0.3"
+  resolved "https://bitsighttech.jfrog.io/bitsighttech/api/npm/bs-virtual-npm/typescript/-/typescript-4.0.3.tgz#153bbd468ef07725c1df9c77e8b453f8d36abba5"
+  integrity sha1-FTu9Ro7wdyXB35x36LRT+NNqu6U=
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
