@@ -1,7 +1,12 @@
 import Pill from "./pill";
 import styles from "../styles/top.module.scss";
 
-function Artists({ data, loading, applyFilter }) {
+/**
+ * Show the most listened artists, showing their popularity
+ * And displaying them with a Grid layout
+ * @returns {ReactElement} Artists
+ */
+export default function Artists({ data, loading, applyFilter }) {
   const results =
     data || Array.from({ length: 3 }, (_, index) => ({ id: `fake_${index}` }));
   return (
@@ -36,5 +41,3 @@ function Artists({ data, loading, applyFilter }) {
     </article>
   );
 }
-
-export default Artists

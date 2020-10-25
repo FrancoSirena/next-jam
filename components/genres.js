@@ -1,7 +1,13 @@
 import Pill from "./pill";
 import styles from "../styles/top.module.scss";
 
-function Genres({ data, applyFilter, filter, loading, artistsCount = 20 }) {
+/**
+ * Shows most listened music genres
+ * Each genre is a pill which can be toggled on/off
+ * to filter by that specific genre.
+ * @returns {ReactElement} Genres
+ */
+export default function Genres({ data, applyFilter, filter, loading, artistsCount = 20 }) {
   return (
     <div className={styles.genres}>
       {!loading &&
@@ -23,5 +29,3 @@ function Genres({ data, applyFilter, filter, loading, artistsCount = 20 }) {
     </div>
   );
 }
-
-export default Genres;

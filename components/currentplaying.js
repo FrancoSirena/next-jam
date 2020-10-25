@@ -2,6 +2,12 @@ import { useUserContext } from "./usercontext";
 import useRequest from "./hooks/useRequest";
 import style from "../styles/currentplaying.module.scss";
 
+/**
+ * Shows current playing track if there is any
+ * It auto updates itself each minute to check for new track.
+ * It shows a preview if there is a preview_url
+ * @returns {ReactElement} CurrentPlaying
+ */
 export default function CurrentPlaying() {
   const { accessToken } = useUserContext();
 
@@ -14,7 +20,13 @@ export default function CurrentPlaying() {
     }
   );
 
-  console.log({ loading })
+  React.useEffect(() => {
+    let interval;
+    if (accessToken) {
+      interval = setInterval(request, 60000)
+    }
+    return () => interval && clearInterval(interval)
+  }, [accessToken, request]);
 
   return (
     <article style={{ textAlign: "right", fontSize: "13px"}}>

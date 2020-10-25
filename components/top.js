@@ -26,6 +26,12 @@ function reducer(state, action) {
   }
 }
 
+/**
+ * Display the top genres and top artists
+ * It also manages the filter by genre feature, to
+ * search for artists associated with that specific genre
+ * @returns {ReactElement} Top
+ */
 export default function Top() {
   const {
     loading,

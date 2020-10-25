@@ -10,6 +10,10 @@ export function useUserContext() {
   return useContext(UserContext);
 }
 
+/**
+ * User Provider which contains the user profile and token keys
+ * @returns {ReactElement} UserProvider
+ */
 export default function UserProvider({ accessToken, refreshToken, children }) {
   const [user, setUser] = React.useState({
     accessToken,

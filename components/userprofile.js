@@ -1,6 +1,10 @@
 import Link from "next/link";
 import styles from "../styles/userprofile.module.scss";
 
+/**
+ * Top section with all relevant user info
+ * @returns {ReactElement} UserProfile
+ */
 export default function UserProfile({ user }) {
   return (
     <div className={styles.profile}>
